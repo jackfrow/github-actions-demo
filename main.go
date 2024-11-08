@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-	fmt.Println("test05")
+	fmt.Println("test06")
 
 	r := gin.Default()
 	r.GET("/", func(c *gin.Context) {
