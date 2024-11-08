@@ -28,7 +28,7 @@ jobs:
       - name: Unit test stage
         run: go test -v .
       - name: Deploy stage
-        uses: easingthemes/ssh-deploy@v2.1.2
+        uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ vars.SERVER_SSH_KEY }}
           ARGS: "-rltgoDzvO"
