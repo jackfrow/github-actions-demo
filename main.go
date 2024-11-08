@@ -1,11 +1,14 @@
 package main
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
 )
 
 func main() {
+
+	fmt.Println("test123")
 
 	r := gin.Default()
 	r.GET("/", func(c *gin.Context) {
