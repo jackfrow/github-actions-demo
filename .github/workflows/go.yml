@@ -2,7 +2,7 @@ name: Github actions demo
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build:
     name: GitHub Actions演示
