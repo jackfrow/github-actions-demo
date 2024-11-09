@@ -1,8 +1,7 @@
 module github.com/jackfrow/github-actions-demo
 
-go 1.21.0
+go 1.21.10
 
-toolchain go1.21.10
 
 require (
 	github.com/gin-gonic/gin v1.10.0
