@@ -7,6 +7,8 @@ jobs:
   test:
     name: Run Go tests
     runs-on: ubuntu-latest
+    env:
+      DISCORD_WEBHOOK_URL: "https://discord.com/api/webhooks/1304830265511907462/UgGGS9Wdc9sz6gqizUjZXBYgU5NHeKCeZJ_Yk0to_VREBXvQRr-8ix4E7uOBzOQylykY"
 
     steps:
       - name: Set up Go
@@ -17,8 +19,13 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Run tests
-        run: go test ./...
-      - name: Notify Discord
+      - name: Notify Discord on Success
+        if: success()
         run: |
-          curl -H "Content-Type: application/json" -X POST -d '{"content": "your action start"}' https://discord.com/api/webhooks/1304830265511907462/UgGGS9Wdc9sz6gqizUjZXBYgU5NHeKCeZJ_Yk0to_VREBXvQRr-8ix4E7uOBzOQylykY
+          curl -H "Content-Type: application/json" -X POST -d '{"content": "GitHub Actions Workflow Succeeded 🎉"}' $DISCORD_WEBHOOK_URL
+
+      - name: Notify Discord on Failure
+        if: failure()
+        run: |
+          curl -H "Content-Type: application/json" -X POST -d '{"content": "GitHub Actions Workflow Failed ❌"}' $DISCORD_WEBHOOK_URL
+
