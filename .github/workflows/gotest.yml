@@ -19,3 +19,6 @@ jobs:
 
       - name: Run tests
         run: go test ./...
+      - name: Notify Discord
+        run: |
+          curl -H "Content-Type: application/json" -X POST -d '{"content": "your action start"}' https://discord.com/api/webhooks/1304830265511907462/UgGGS9Wdc9sz6gqizUjZXBYgU5NHeKCeZJ_Yk0to_VREBXvQRr-8ix4E7uOBzOQylykY
